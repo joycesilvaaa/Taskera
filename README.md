@@ -48,6 +48,70 @@ Run the application using:
 node index.js
 ```
 
+## GraphQL Queries and Mutations
+
+Here are some example GraphQL queries and mutations for managing tasks in Taskera:
+
+### Add a Task
+Use the following mutation to create a new task:
+```graphql
+mutation {
+    criarTarefa(titulo: "Estudar GraphQL", descricao: "Testando o CRUD") {
+        id
+        titulo
+        concluida
+    }
+}
+```
+
+### List All Tasks
+Use this query to retrieve all tasks:
+```graphql
+query {
+    listarTarefas {
+        id
+        titulo
+        descricao
+        concluida
+    }
+}
+```
+
+### Get Task by ID
+Use this query to fetch a specific task by its ID:
+```graphql
+query {
+    buscarTarefa(id: 1) {
+        id
+        titulo
+        descricao
+        concluida
+    }
+}
+```
+
+### Update a Task
+Use this mutation to update a task's status or other fields:
+```graphql
+mutation {
+    atualizarTarefa(id: 1, concluida: true) {
+        id
+        titulo
+        concluida
+    }
+}
+```
+
+### Delete a Task
+Use this mutation to delete a task by its ID:
+```graphql
+mutation {
+    deletarTarefa(id: 1)
+}
+```
+
+These examples demonstrate how to interact with the Taskera GraphQL API for task management.
+
 ## Notes
 - Ensure you have Node.js and Prisma CLI installed on your system.
 - The database file `dev.db` will be created in the project directory.
